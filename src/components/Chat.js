@@ -9,7 +9,7 @@ import {
 } from '@material-ui/icons';
 import './Chat.css';
 
-const Chat = () => {
+const Chat = ({ messages }) => {
 	const [seed, setSeed] = useState('');
 	useEffect(() => {
 		setSeed(Math.floor(Math.random() * 5000));
@@ -35,34 +35,18 @@ const Chat = () => {
 				</div>
 			</div>
 			<div className="chat__body">
-				<p className="chat__message">
-					<span className="chat__name">Wazimu</span>
-					Hello there, Welcome to my chat app.
-					<span className="chat__timestamp">
-						{new Date('2021-12-01T08:30:42.989Z').toUTCString()}
-					</span>
-				</p>
-				<p className="chat__message chat__receiver">
-					<span className="chat__name">Maleo</span>
-					Hello there Wazimu, am glad to use your app!
-					<span className="chat__timestamp">
-						{new Date('2021-12-01T08:31:05.989Z').toUTCString()}
-					</span>
-				</p>
-				<p className="chat__message">
-					<span className="chat__name"></span>Wazimu Thank you for subscribing
-					to my App. Share to your friends to support my work.
-					<span className="chat__timestamp">
-						{new Date('2021-12-01T08:35:50.989Z').toUTCString()}
-					</span>
-				</p>
-				<p className="chat__message chat__receiver">
-					<span className="chat__name">Maleo</span>
-					Cool! I'll sure do.
-					<span className="chat__timestamp">
-						{new Date('2021-12-01T08:42:42.989Z').toUTCString()}
-					</span>
-				</p>
+				{messages &&
+					messages.map(message => (
+						<p
+							className={`chat__message ${
+								message.received && 'chat__receiver'
+							}`}
+						>
+							<span className="chat__name">{message.name}</span>
+							{message.message}
+							<span className="chat__timestamp">{message.timestamp}</span>
+						</p>
+					))}
 			</div>
 			<div className="chat__footer">
 				<InsertEmoticon />
