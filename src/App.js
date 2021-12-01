@@ -4,9 +4,14 @@ import './App.css';
 import Chat from './components/Chat';
 import Sidebar from './components/Sidebar';
 import axios from './components/axios';
+import Login from './components/Login';
+import { useStateValue } from './components/StateProvider';
 
 function App() {
 	const [messages, setMessages] = useState([]);
+	const [{ user }] = useStateValue();
+	// const [user, setUser] = useState(null);
+
 	useEffect(() => {
 		axios.get('/messages/sync').then(res => {
 			setMessages(res.data);
@@ -29,10 +34,14 @@ function App() {
 	}, [messages]);
 	return (
 		<div className="app">
-			<div className="app__body">
-				<Sidebar />
-				<Chat messages={messages} />
-			</div>
+			{!user ? (
+				<Login />
+			) : (
+				<div className="app__body">
+					<Sidebar />
+					<Chat messages={messages} />
+				</div>
+			)}
 		</div>
 	);
 }
