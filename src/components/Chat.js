@@ -7,10 +7,23 @@ import {
 	InsertEmoticon,
 	Mic,
 } from '@material-ui/icons';
+import axios from './axios';
 import './Chat.css';
 
 const Chat = ({ messages }) => {
 	const [seed, setSeed] = useState('');
+	const [input, setInput] = useState('');
+
+	const sendMessage = async e => {
+		e.preventDefault();
+		await axios.post('/messages/new', {
+			message: input,
+			name: 'wazimu',
+			timestamp: new Date().toUTCString(),
+			received: true,
+		});
+		setInput('');
+	};
 	useEffect(() => {
 		setSeed(Math.floor(Math.random() * 5000));
 	}, []);
@@ -51,8 +64,15 @@ const Chat = ({ messages }) => {
 			<div className="chat__footer">
 				<InsertEmoticon />
 				<form>
-					<input placeholder="Type a message" type="text" />
-					<button type="submit">Send a message</button>
+					<input
+						value={input}
+						onChange={e => setInput(e.target.value)}
+						placeholder="Type a message"
+						type="text"
+					/>
+					<button type="submit" onClick={sendMessage}>
+						Send a message
+					</button>
 					<Mic />
 				</form>
 			</div>
