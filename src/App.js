@@ -7,7 +7,11 @@ import axios from './components/axios';
 
 function App() {
 	const [messages, setMessages] = useState([]);
-	useEffect(()=>{axios.get('/messages/sync').then(res=>{setMessages(res.data)})},[])
+	useEffect(() => {
+		axios.get('/messages/sync').then(res => {
+			setMessages(res.data);
+		});
+	}, []);
 
 	useEffect(() => {
 		const pusher = new Pusher('2bda85460a9ec3e2b216', {
@@ -27,7 +31,7 @@ function App() {
 		<div className="app">
 			<div className="app__body">
 				<Sidebar />
-				<Chat messages={messages}/>
+				<Chat messages={messages} />
 			</div>
 		</div>
 	);
