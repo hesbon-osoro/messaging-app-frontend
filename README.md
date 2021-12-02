@@ -20,3 +20,7 @@
 ## Chatting Interface
 
 [![messaging2.png](https://i.postimg.cc/W4QZQt0f/messaging2.png)](https://messaging-app-frontend.web.app)
+
+## Summary
+
+A simple message sharing app for multiple individuals under the same chat room.
