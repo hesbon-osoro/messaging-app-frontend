@@ -1,6 +1,6 @@
 ## Messaging App
 
-[![messaging.png](https://i.postimg.cc/CxZV9LC9/messaging.png)](https://messaging-app-frontend.web.app/)
+[![messaging.png](https://i.postimg.cc/mgpCymk4/messaging.png)](https://messaging-app-frontend.web.app/)
 
 ## Tech Stack
 
@@ -15,8 +15,8 @@
 
 ## Google Authentication
 
-[![messaging1.png](https://i.postimg.cc/nh6txb0r/messaging1.png)](https://messaging-app-frontend.web.app)
+[![messaging1.png](https://i.postimg.cc/yNJ9Q03Z/messaging1.png)](https://messaging-app-frontend.web.app)
 
 ## Chatting Interface
 
-[![messaging2.png](https://i.postimg.cc/DzL3yjMg/messaging2.png)](https://messaging-app-frontend.web.app)
+[![messaging2.png](https://i.postimg.cc/W4QZQt0f/messaging2.png)](https://messaging-app-frontend.web.app)
