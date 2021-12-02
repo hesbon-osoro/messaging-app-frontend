@@ -7,4 +7,5 @@
 - Node
 - Express
 - Firebase
+- Google Authentication
 - Heroku
