@@ -35,7 +35,7 @@ const Chat = ({ messages }) => {
 				<Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
 				<div className="chat__headerInfo">
 					<h3>Wazimu Dev Chat Corner</h3>
-					<p>Last seen at {' '} {messages[messages.length - 1]?.timestamp}</p>
+					<p>Last seen at {messages[messages.length - 1]?.timestamp}</p>
 				</div>
 				<div className="chat__headerRight">
 					<IconButton>
@@ -75,8 +75,8 @@ const Chat = ({ messages }) => {
 					<button type="submit" onClick={sendMessage}>
 						Send a message
 					</button>
-					<Mic />
 				</form>
+				<Mic />
 			</div>
 		</div>
 	);
