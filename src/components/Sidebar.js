@@ -3,12 +3,15 @@ import './Sidebar.css';
 import { DonutLarge, MoreVert, Chat, SearchOutlined } from '@material-ui/icons';
 import { IconButton, Avatar } from '@material-ui/core';
 import SidebarChat from './SidebarChat';
+import { useStateValue } from './StateProvider';
 
-const Sidebar = () => {
+const Sidebar = ({ messages }) => {
+	const [{ user }, dispatch] = useStateValue();
+
 	return (
 		<div className="sidebar">
 			<div className="sidebar__header">
-				<Avatar src="https://i.postimg.cc/SRRNxqs3/michael-dam-m-EZ3-Po-FGs-k-unsplash.jpg" />
+				<Avatar src={user?.photoURL} />
 				<div className="sidebar__headerRight">
 					<IconButton>
 						<DonutLarge />
@@ -28,9 +31,7 @@ const Sidebar = () => {
 				</div>
 			</div>
 			<div className="sidebar__chats">
-				<SidebarChat />
-				<SidebarChat />
-				<SidebarChat />
+				<SidebarChat messages={messages} />
 			</div>
 		</div>
 	);
